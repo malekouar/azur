@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-config-heading" jhiTranslate="azursupportwebtoolApp.config.home.createOrEditLabel">Create or edit a Config</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.config.teamviewerId" for="field_teamviewerId">Teamviewer Id</label>
+                    <input type="text" class="form-control" name="teamviewerId" id="field_teamviewerId"
+                           formControlName="teamviewerId"/>
+                    <div *ngIf="editForm.get('teamviewerId').invalid && (editForm.get('teamviewerId').dirty || editForm.get('teamviewerId').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('teamviewerId').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.config.teamviewerPassword" for="field_teamviewerPassword">Teamviewer Password</label>
+                    <input type="text" class="form-control" name="teamviewerPassword" id="field_teamviewerPassword"
+                           formControlName="teamviewerPassword"/>
+                    <div *ngIf="editForm.get('teamviewerPassword').invalid && (editForm.get('teamviewerPassword').dirty || editForm.get('teamviewerPassword').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('teamviewerPassword').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.config.vpnType" for="field_vpnType">Vpn Type</label>
+                    <input type="text" class="form-control" name="vpnType" id="field_vpnType"
+                           formControlName="vpnType"/>
+                    <div *ngIf="editForm.get('vpnType').invalid && (editForm.get('vpnType').dirty || editForm.get('vpnType').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('vpnType').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.config.vpnIp" for="field_vpnIp">Vpn Ip</label>
+                    <input type="text" class="form-control" name="vpnIp" id="field_vpnIp"
+                           formControlName="vpnIp"/>
+                    <div *ngIf="editForm.get('vpnIp').invalid && (editForm.get('vpnIp').dirty || editForm.get('vpnIp').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('vpnIp').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.config.vpnLogin" for="field_vpnLogin">Vpn Login</label>
+                    <input type="text" class="form-control" name="vpnLogin" id="field_vpnLogin"
+                           formControlName="vpnLogin"/>
+                    <div *ngIf="editForm.get('vpnLogin').invalid && (editForm.get('vpnLogin').dirty || editForm.get('vpnLogin').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('vpnLogin').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.config.vpnPassword" for="field_vpnPassword">Vpn Password</label>
+                    <input type="text" class="form-control" name="vpnPassword" id="field_vpnPassword"
+                           formControlName="vpnPassword"/>
+                    <div *ngIf="editForm.get('vpnPassword').invalid && (editForm.get('vpnPassword').dirty || editForm.get('vpnPassword').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('vpnPassword').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.config.client" for="field_client">Client</label>
+                    <select class="form-control" id="field_client" name="client" formControlName="clientId">
+                        <option *ngIf="!editForm.get('clientId').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="clientOption.id" *ngFor="let clientOption of clients; trackBy: trackClientById">{{clientOption.id}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('clientId').invalid && (editForm.get('clientId').dirty || editForm.get('clientId').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('clientId').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-intervention-heading" jhiTranslate="azursupportwebtoolApp.intervention.home.createOrEditLabel">Create or edit a Intervention</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.intervention.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                    <div *ngIf="editForm.get('type').invalid && (editForm.get('type').dirty || editForm.get('type').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('type').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('type').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.intervention.dateDebut" for="field_dateDebut">Date Debut</label>
+                    <div class="d-flex">
+                        <input id="field_dateDebut" type="datetime-local" class="form-control" name="dateDebut" formControlName="dateDebut" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateDebut').invalid && (editForm.get('dateDebut').dirty || editForm.get('dateDebut').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateDebut').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateDebut').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.intervention.dateFin" for="field_dateFin">Date Fin</label>
+                    <div class="d-flex">
+                        <input id="field_dateFin" type="datetime-local" class="form-control" name="dateFin" formControlName="dateFin" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.intervention.responsable" for="field_responsable">Responsable</label>
+                    <input type="text" class="form-control" name="responsable" id="field_responsable"
+                           formControlName="responsable"/>
+                    <div *ngIf="editForm.get('responsable').invalid && (editForm.get('responsable').dirty || editForm.get('responsable').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('responsable').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('responsable').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.intervention.etat" for="field_etat">Etat</label>
+                    <input type="text" class="form-control" name="etat" id="field_etat"
+                           formControlName="etat"/>
+                    <div *ngIf="editForm.get('etat').invalid && (editForm.get('etat').dirty || editForm.get('etat').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('etat').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('etat').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.intervention.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                    <div *ngIf="editForm.get('description').invalid && (editForm.get('description').dirty || editForm.get('description').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.intervention.detail" for="field_detail">Detail</label>
+                    <input type="text" class="form-control" name="detail" id="field_detail"
+                           formControlName="detail"/>
+                    <div *ngIf="editForm.get('detail').invalid && (editForm.get('detail').dirty || editForm.get('detail').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('detail').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.intervention.dossier" for="field_dossier">Dossier</label>
+                    <select class="form-control" id="field_dossier" name="dossier" formControlName="dossierId">
+                        <option *ngIf="!editForm.get('dossierId').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="dossierOption.id" *ngFor="let dossierOption of dossiers; trackBy: trackDossierById">{{dossierOption.id}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('dossierId').invalid && (editForm.get('dossierId').dirty || editForm.get('dossierId').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('dossierId').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

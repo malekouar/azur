@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="livraisons">
+            <h2><span jhiTranslate="azursupportwebtoolApp.livraisons.detail.title">Livraisons</span> {{livraisons.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="azursupportwebtoolApp.livraisons.type">Type</span></dt>
+                <dd>
+                    <span>{{livraisons.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.livraisons.dateLivraison">Date Livraison</span></dt>
+                <dd>
+                    <span>{{livraisons.dateLivraison}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.livraisons.responsable">Responsable</span></dt>
+                <dd>
+                    <span>{{livraisons.responsable}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.livraisons.etat">Etat</span></dt>
+                <dd>
+                    <span>{{livraisons.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.livraisons.nomPackage">Nom Package</span></dt>
+                <dd>
+                    <span>{{livraisons.nomPackage}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.livraisons.idSvn">Id Svn</span></dt>
+                <dd>
+                    <span>{{livraisons.idSvn}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.livraisons.description">Description</span></dt>
+                <dd>
+                    <span>{{livraisons.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.livraisons.detail">Detail</span></dt>
+                <dd>
+                    <span>{{livraisons.detail}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.livraisons.intervention">Intervention</span></dt>
+                <dd>
+                    <div *ngIf="livraisons.interventionId">
+                        <a [routerLink]="['/intervention', livraisons.interventionId, 'view']">{{livraisons.interventionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/livraisons', livraisons.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

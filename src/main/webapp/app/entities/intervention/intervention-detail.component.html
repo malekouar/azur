@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="intervention">
+            <h2><span jhiTranslate="azursupportwebtoolApp.intervention.detail.title">Intervention</span> {{intervention.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="azursupportwebtoolApp.intervention.type">Type</span></dt>
+                <dd>
+                    <span>{{intervention.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.intervention.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{intervention.dateDebut}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.intervention.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{intervention.dateFin}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.intervention.responsable">Responsable</span></dt>
+                <dd>
+                    <span>{{intervention.responsable}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.intervention.etat">Etat</span></dt>
+                <dd>
+                    <span>{{intervention.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.intervention.description">Description</span></dt>
+                <dd>
+                    <span>{{intervention.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.intervention.detail">Detail</span></dt>
+                <dd>
+                    <span>{{intervention.detail}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.intervention.dossier">Dossier</span></dt>
+                <dd>
+                    <div *ngIf="intervention.dossierId">
+                        <a [routerLink]="['/dossier', intervention.dossierId, 'view']">{{intervention.dossierId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/intervention', intervention.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

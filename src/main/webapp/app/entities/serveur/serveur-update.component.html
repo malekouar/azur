@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-serveur-heading" jhiTranslate="azursupportwebtoolApp.serveur.home.createOrEditLabel">Create or edit a Serveur</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.serveur.serveurType" for="field_serveurType">Serveur Type</label>
+                    <input type="text" class="form-control" name="serveurType" id="field_serveurType"
+                           formControlName="serveurType"/>
+                    <div *ngIf="editForm.get('serveurType').invalid && (editForm.get('serveurType').dirty || editForm.get('serveurType').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serveurType').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.serveur.serveurNom" for="field_serveurNom">Serveur Nom</label>
+                    <input type="text" class="form-control" name="serveurNom" id="field_serveurNom"
+                           formControlName="serveurNom"/>
+                    <div *ngIf="editForm.get('serveurNom').invalid && (editForm.get('serveurNom').dirty || editForm.get('serveurNom').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serveurNom').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.serveur.serveurIp" for="field_serveurIp">Serveur Ip</label>
+                    <input type="text" class="form-control" name="serveurIp" id="field_serveurIp"
+                           formControlName="serveurIp"/>
+                    <div *ngIf="editForm.get('serveurIp').invalid && (editForm.get('serveurIp').dirty || editForm.get('serveurIp').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serveurIp').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.serveur.login" for="field_login">Login</label>
+                    <input type="text" class="form-control" name="login" id="field_login"
+                           formControlName="login"/>
+                    <div *ngIf="editForm.get('login').invalid && (editForm.get('login').dirty || editForm.get('login').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('login').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.serveur.password" for="field_password">Password</label>
+                    <input type="text" class="form-control" name="password" id="field_password"
+                           formControlName="password"/>
+                    <div *ngIf="editForm.get('password').invalid && (editForm.get('password').dirty || editForm.get('password').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('password').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 45 }">
+                        This field cannot be longer than 45 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azursupportwebtoolApp.serveur.config" for="field_config">Config</label>
+                    <select class="form-control" id="field_config" name="config" formControlName="configId">
+                        <option *ngIf="!editForm.get('configId').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="configOption.id" *ngFor="let configOption of configs; trackBy: trackConfigById">{{configOption.id}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('configId').invalid && (editForm.get('configId').dirty || editForm.get('configId').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('configId').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

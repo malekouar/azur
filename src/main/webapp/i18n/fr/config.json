@@ -1,0 +1,30 @@
+{
+  "azursupportwebtoolApp": {
+    "config": {
+      "home": {
+        "title": "Configs",
+        "createLabel": "Créer un nouveau Config",
+        "createOrEditLabel": "Créer ou éditer un Config",
+        "search": "Recherche pour Config",
+        "notFound": "Aucun Config trouvé"
+      },
+      "created": "Un nouveau Config a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Config avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Config avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Config {{ id }} ?"
+      },
+      "detail": {
+        "title": "Config"
+      },
+      "teamviewerId": "Teamviewer Id",
+      "teamviewerPassword": "Teamviewer Password",
+      "vpnType": "Vpn Type",
+      "vpnIp": "Vpn Ip",
+      "vpnLogin": "Vpn Login",
+      "vpnPassword": "Vpn Password",
+      "client": "Client",
+      "serveur": "Serveur"
+    }
+  }
+}

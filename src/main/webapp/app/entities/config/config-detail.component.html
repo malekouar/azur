@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="config">
+            <h2><span jhiTranslate="azursupportwebtoolApp.config.detail.title">Config</span> {{config.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="azursupportwebtoolApp.config.teamviewerId">Teamviewer Id</span></dt>
+                <dd>
+                    <span>{{config.teamviewerId}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.config.teamviewerPassword">Teamviewer Password</span></dt>
+                <dd>
+                    <span>{{config.teamviewerPassword}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.config.vpnType">Vpn Type</span></dt>
+                <dd>
+                    <span>{{config.vpnType}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.config.vpnIp">Vpn Ip</span></dt>
+                <dd>
+                    <span>{{config.vpnIp}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.config.vpnLogin">Vpn Login</span></dt>
+                <dd>
+                    <span>{{config.vpnLogin}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.config.vpnPassword">Vpn Password</span></dt>
+                <dd>
+                    <span>{{config.vpnPassword}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.config.client">Client</span></dt>
+                <dd>
+                    <div *ngIf="config.clientId">
+                        <a [routerLink]="['/client', config.clientId, 'view']">{{config.clientId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/config', config.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

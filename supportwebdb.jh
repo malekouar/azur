@@ -1,0 +1,94 @@
+entity Client {
+	id Integer required,
+	raisonSociale String required maxlength(255),
+	contact String required maxlength(45),
+	tel String maxlength(45),
+	mobile String maxlength(45),
+	email String maxlength(100)
+}
+
+entity Config {
+	id Integer required,
+	teamviewerId String maxlength(45),
+	teamviewerPassword String maxlength(45),
+	vpnType String maxlength(45),
+	vpnIp String maxlength(45),
+	vpnLogin String maxlength(255),
+	vpnPassword String maxlength(100)
+}
+
+entity Dossier {
+	id Integer required,
+	type String required maxlength(45),
+	dateDebut Instant required,
+	responsable String required maxlength(45),
+	etat String required maxlength(45),
+	urlAzimut String maxlength(255),
+	urlRedmine String maxlength(255),
+	urlAkuiteo String maxlength(255),
+	dateFin Instant required
+}
+
+entity Intervention {
+	id Integer required,
+	type String required maxlength(45),
+	dateDebut Instant required,
+	dateFin Instant,
+	responsable String required maxlength(45),
+	etat String required maxlength(45),
+	description String maxlength(255),
+	detail String maxlength(255)
+}
+
+entity Livraisons {
+	id Integer required,
+	type String required maxlength(45),
+	dateLivraison Instant required,
+	responsable String required maxlength(45),
+	etat String required maxlength(45),
+	nomPackage String required maxlength(255),
+	idSvn Integer required,
+	description String maxlength(255),
+	detail String maxlength(255)
+}
+
+entity Serveur {
+	id Integer required,
+	serveurType String maxlength(45),
+	serveurNom String maxlength(45),
+	serveurIp String maxlength(45),
+	login String maxlength(45),
+	password String maxlength(45)
+}
+
+
+
+// Relations
+relationship ManyToOne {
+	Config{client required} to Client{config}
+}
+
+relationship ManyToOne {
+	Dossier{client required} to Client{dossier}
+}
+
+relationship ManyToOne {
+	Intervention{dossier required} to Dossier{intervention}
+}
+
+relationship ManyToOne {
+	Livraisons{intervention required} to Intervention{livraisons}
+}
+
+relationship ManyToOne {
+	Serveur{config required} to Config{serveur}
+}
+
+
+
+// Options
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+filter *
+

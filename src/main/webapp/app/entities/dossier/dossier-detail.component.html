@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dossier">
+            <h2><span jhiTranslate="azursupportwebtoolApp.dossier.detail.title">Dossier</span> {{dossier.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="azursupportwebtoolApp.dossier.type">Type</span></dt>
+                <dd>
+                    <span>{{dossier.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.dossier.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{dossier.dateDebut}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.dossier.responsable">Responsable</span></dt>
+                <dd>
+                    <span>{{dossier.responsable}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.dossier.etat">Etat</span></dt>
+                <dd>
+                    <span>{{dossier.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.dossier.urlAzimut">Url Azimut</span></dt>
+                <dd>
+                    <span>{{dossier.urlAzimut}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.dossier.urlRedmine">Url Redmine</span></dt>
+                <dd>
+                    <span>{{dossier.urlRedmine}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.dossier.urlAkuiteo">Url Akuiteo</span></dt>
+                <dd>
+                    <span>{{dossier.urlAkuiteo}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.dossier.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{dossier.dateFin}}</span>
+                </dd>
+                <dt><span jhiTranslate="azursupportwebtoolApp.dossier.client">Client</span></dt>
+                <dd>
+                    <div *ngIf="dossier.clientId">
+                        <a [routerLink]="['/client', dossier.clientId, 'view']">{{dossier.clientId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dossier', dossier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

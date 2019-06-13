@@ -1,0 +1,31 @@
+{
+  "azursupportwebtoolApp": {
+    "livraisons": {
+      "home": {
+        "title": "Livraisons",
+        "createLabel": "Créer un nouveau Livraisons",
+        "createOrEditLabel": "Créer ou éditer un Livraisons",
+        "search": "Recherche pour Livraisons",
+        "notFound": "Aucun Livraisons trouvé"
+      },
+      "created": "Un nouveau Livraisons a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Livraisons avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Livraisons avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Livraisons {{ id }} ?"
+      },
+      "detail": {
+        "title": "Livraisons"
+      },
+      "type": "Type",
+      "dateLivraison": "Date Livraison",
+      "responsable": "Responsable",
+      "etat": "Etat",
+      "nomPackage": "Nom Package",
+      "idSvn": "Id Svn",
+      "description": "Description",
+      "detail": "Detail",
+      "intervention": "Intervention"
+    }
+  }
+}

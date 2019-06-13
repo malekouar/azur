@@ -41,8 +41,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/azursupportwebtool
-    username: azursupportwebtool
-    password:
+    username: postgres
+    password: route
     hikari:
       poolName: Hikari
       auto-commit: false

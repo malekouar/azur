@@ -46,6 +46,17 @@ public class CacheConfiguration {
             createCache(cm, azur.support.web.tool.domain.User.class.getName());
             createCache(cm, azur.support.web.tool.domain.Authority.class.getName());
             createCache(cm, azur.support.web.tool.domain.User.class.getName() + ".authorities");
+            createCache(cm, azur.support.web.tool.domain.Client.class.getName());
+            createCache(cm, azur.support.web.tool.domain.Client.class.getName() + ".configs");
+            createCache(cm, azur.support.web.tool.domain.Client.class.getName() + ".dossiers");
+            createCache(cm, azur.support.web.tool.domain.Config.class.getName());
+            createCache(cm, azur.support.web.tool.domain.Config.class.getName() + ".serveurs");
+            createCache(cm, azur.support.web.tool.domain.Dossier.class.getName());
+            createCache(cm, azur.support.web.tool.domain.Dossier.class.getName() + ".interventions");
+            createCache(cm, azur.support.web.tool.domain.Intervention.class.getName());
+            createCache(cm, azur.support.web.tool.domain.Intervention.class.getName() + ".livraisons");
+            createCache(cm, azur.support.web.tool.domain.Livraisons.class.getName());
+            createCache(cm, azur.support.web.tool.domain.Serveur.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,28 @@
+{
+  "azursupportwebtoolApp": {
+    "serveur": {
+      "home": {
+        "title": "Serveurs",
+        "createLabel": "Créer un nouveau Serveur",
+        "createOrEditLabel": "Créer ou éditer un Serveur",
+        "search": "Recherche pour Serveur",
+        "notFound": "Aucun Serveur trouvé"
+      },
+      "created": "Un nouveau Serveur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Serveur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Serveur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Serveur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Serveur"
+      },
+      "serveurType": "Serveur Type",
+      "serveurNom": "Serveur Nom",
+      "serveurIp": "Serveur Ip",
+      "login": "Login",
+      "password": "Password",
+      "config": "Config"
+    }
+  }
+}
