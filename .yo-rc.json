@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "azur.support.web.tool",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.1.0",
+    "applicationType": "monolith",
+    "baseName": "azursupportwebtool",
+    "packageName": "azur.support.web.tool",
+    "packageFolder": "azur/support/web/tool",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "ZmQ4NDdhOTczMTFmY2VhNjcwYjU2MzYwMThhNzFiYjNhNjQ3ZmM2OWIxMTE3MjdjZDNkYTM3ZTdkM2JkNTc0NzdiNWVhY2EzYWZjMDYwNTA3Y2Y3ZDdhNGUwZTIyNWNjNzI5YTY4N2VmMGVjZTE3M2QyMjQ5NDYzMDhkNWU2OTc=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "united",
+    "clientThemeVariant": "light",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": ["fr"]
+  }
+}
